@@ -1,3 +1,33 @@
-.project-page {
-  padding: 1.5em 1em 3.5em;
+.project__overview {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5em;
+}
+
+.project__status {
+  display: inline-block;
+  background-color: hsl(var(--clr-secondary-400));
+  color: hsl(var(--clr-neutral-900));
+  font-weight: var(--fw-semi-bold);
+  font-size: 0.8125rem;
+  padding: 0.25em 0.75em;
+  border-radius: 0.25rem;
+}
+
+.project__menu {
+  cursor: pointer;
+  display: flex;
+  border: none;
+  background: transparent;
+  padding: 0.25em;
+  border-radius: 0.25rem;
+}
+
+.project__menu:is(:hover, :focus) {
+  background: hsl(var(--clr-neutral-100), 0.1);
+}
+
+.project__details {
+  padding: 1.5em;
 }
