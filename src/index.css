@@ -257,34 +257,6 @@ select {
   font-size: var(--fs-body-x-sm);
 }
 
-.btn {
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 0.5em 1.5em;
-  border-radius: 100vw;
-}
-
-.btn--primary {
-  background-color: var(--clr-primary-400);
-  color: var(--clr-neutral-100);
-  transition: 0.125s ease;
-}
-
-.btn--primary:is(:hover, :focus) {
-  background-color: hsl(280, 36%, 43%);
-}
-
-.btn--secondary {
-  background-color: var(--clr-secondary-400);
-  color: var(--clr-neutral-100);
-  transition: 0.125s ease;
-}
-
-.btn--secondary:is(:hover, :focus) {
-  background-color: hsl(32, 100%, 45%);
-}
-
 body {
   font-family: var(--ff-body);
   font-size: var(--fs-body);
