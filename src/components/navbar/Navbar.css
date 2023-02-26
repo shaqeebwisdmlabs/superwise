@@ -145,7 +145,7 @@
     display: none;
   }
 
-  .nav-link:is(:hover, :focus) .nav-link__text {
+  .nav-link:hover .nav-link__text {
     display: block;
   }
 

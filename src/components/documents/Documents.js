@@ -1,5 +1,6 @@
 import React from "react";
 import plus from "../../assets/plus.svg";
+import Document from "../document/Document";
 import "./Documents.css";
 
 const Documents = () => {
@@ -9,7 +10,11 @@ const Documents = () => {
         <img src={plus} alt="plus sign" />
         <span>New Document</span>
       </button>
-      <div className="all-documents"></div>
+      <div className="all-documents">
+        <Document />
+        <Document />
+        <Document />
+      </div>
     </div>
   );
 };

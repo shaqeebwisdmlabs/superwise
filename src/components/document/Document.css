@@ -1,0 +1,25 @@
+.document {
+  padding: 1em;
+  border-radius: 0.5rem;
+}
+
+.document__image {
+  display: grid;
+  place-items: center;
+  height: 10rem;
+  border-radius: 0.25rem;
+  background-color: hsl(var(--clr-neutral-500), 0.5);
+}
+
+.document__menu {
+  cursor: pointer;
+  display: flex;
+  border: none;
+  background: transparent;
+  padding: 0.25em;
+  border-radius: 0.25rem;
+}
+
+.document__menu:is(:hover, :focus) {
+  background: hsl(var(--clr-neutral-700), 0.1);
+}
