@@ -1,0 +1,51 @@
+.project-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: hsl(var(--clr-neutral-100));
+  padding: 1em;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: hsl(var(--clr-neutral-900));
+  transition: all 150ms ease-in-out;
+}
+
+.project-view:is(:hover, :focus) {
+  background-color: hsl(var(--clr-primary-400), 0.15);
+}
+
+.project-view__status {
+  display: inline-block;
+  background-color: hsl(var(--clr-secondary-400));
+  font-weight: var(--fw-semi-bold);
+  font-size: 0.8125rem;
+  padding: 0.25em 0.75em;
+  border-radius: 0.25rem;
+}
+
+.project-view__client {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: hsl(var(--clr-neutral-700));
+}
+
+.project-view__due-date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: hsl(var(--clr-neutral-700));
+}
+
+.project-view__menu {
+  cursor: pointer;
+  display: flex;
+  border: none;
+  background: transparent;
+  padding: 0.25em;
+  border-radius: 0.25rem;
+}
+
+.project-view__menu:is(:hover, :focus) {
+  background: hsl(var(--clr-neutral-700), 0.1);
+}

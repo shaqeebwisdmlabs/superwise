@@ -1,0 +1,9 @@
+main {
+  margin-left: 0;
+}
+
+@media (width >= 560px) {
+  main {
+    margin-left: 3.85rem;
+  }
+}
