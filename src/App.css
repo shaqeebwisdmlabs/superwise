@@ -7,3 +7,61 @@ main {
     margin-left: 3.85rem;
   }
 }
+
+.popup-backdrop {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.popup {
+  width: 100%;
+  max-width: 24rem;
+  background-color: hsl(var(--clr-neutral-100));
+  border-radius: 0.5rem;
+  padding: 2em;
+  margin: 0 1.5em;
+}
+
+@media (width>=560px) {
+  .popup {
+    max-width: 30rem;
+  }
+}
+
+.btn--add {
+  cursor: pointer;
+  border: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25rem;
+  background-color: hsl(var(--clr-primary-400));
+  color: hsl(var(--clr-neutral-100));
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-body-sm);
+  transition: all 150ms ease-in-out;
+}
+
+.btn--add:is(:hover, :focus) {
+  background-color: hsl(var(--clr-primary-400), 0.75);
+}
+
+.btn--cancel {
+  cursor: pointer;
+  border: none;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25rem;
+  background-color: hsl(var(--clr-neutral-500));
+  color: hsl(var(--clr-neutral-100));
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-body-sm);
+  transition: all 150ms ease-in-out;
+}
+
+.btn--cancel:is(:hover, :focus) {
+  background-color: hsl(var(--clr-neutral-500), 0.75);
+}

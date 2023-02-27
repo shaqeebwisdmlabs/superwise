@@ -1,0 +1,20 @@
+.input-field label {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  outline: 1.5px solid hsl(var(--clr-neutral-700), 0.25);
+  border-radius: 0.25rem;
+}
+
+.input-field input:focus {
+  outline: 2px solid hsl(var(--clr-primary-400));
+}
+
+.input-field input::placeholder {
+  color: hsl(var(--clr-neutral-500));
+}
