@@ -4,9 +4,8 @@ import Contact from "../contact/Contact";
 import NewContact from "../popups/newContact/NewContact";
 import "./ClientOrganization.css";
 
-const ClientOrganization = () => {
+const ClientOrganization = ({ client }) => {
   const [showPopup, setShowPopup] = useState(false);
-
   return (
     <>
       {showPopup && <NewContact setShowPopup={setShowPopup} />}
@@ -23,7 +22,7 @@ const ClientOrganization = () => {
               />
             </div>
             <h3 className="fw-bold fs-body-lg" style={{ lineHeight: "1.1" }}>
-              Organization Name
+              {client.organization}
             </h3>
           </div>
           <div className="flex" style={{ alignItems: "center", gap: "0.5rem" }}>
@@ -54,9 +53,9 @@ const ClientOrganization = () => {
           </div>
         </div>
         <div className="contacts">
-          <Contact />
-          <Contact />
-          <Contact />
+          {client.contacts.map((contact) => {
+            return <Contact contact={contact} key={contact.id} />;
+          })}
         </div>
       </div>
     </>

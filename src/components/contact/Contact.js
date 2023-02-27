@@ -1,14 +1,14 @@
 import React from "react";
 import "./Contact.css";
 
-const Contact = () => {
+const Contact = ({ contact }) => {
   return (
     <div className="contact">
       <div className="contact__details">
         <p className="fw-medium fs-body-sm" style={{ lineHeight: "1.3" }}>
-          Demo Name
+          {contact.name}
         </p>
-        <p className="fs-body-sm text-neutral-700">demoemail@gmail.com</p>
+        <p className="fs-body-sm text-neutral-700">{contact.email}</p>
       </div>
       <div className="flex" style={{ alignItems: "center", gap: "0.5rem" }}>
         <button className="btn--invite">

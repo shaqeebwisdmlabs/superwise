@@ -3,6 +3,7 @@ import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
 import "./Clients.css";
+import clientData from "../../utils/data/clientData";
 
 const Client = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -22,9 +23,9 @@ const Client = () => {
           </button>
         </header>
         <div className="all-clients">
-          <ClientOrganization />
-          <ClientOrganization />
-          <ClientOrganization />
+          {clientData.map((client) => {
+            return <ClientOrganization key={client.id} client={client} />;
+          })}
         </div>
       </main>
     </>

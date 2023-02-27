@@ -1,4 +1,5 @@
 .document {
+  position: relative;
   padding: 1em;
   border-radius: 0.5rem;
 }
@@ -8,7 +9,19 @@
   place-items: center;
   height: 10rem;
   border-radius: 0.25rem;
-  background-color: hsl(var(--clr-neutral-500), 0.5);
+  background-color: hsl(var(--clr-neutral-500), 0.25);
+}
+
+.document__download {
+  position: absolute;
+  right: 1.5em;
+  top: 1.5em;
+  display: grid;
+  place-items: center;
+  padding: 0.5em 0.5em;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  background-color: hsl(var(--clr-primary-400));
 }
 
 .document__menu {

@@ -4,8 +4,9 @@
 
 .clients__header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
   padding-bottom: 1.5em;
   border-bottom: 1.5px solid hsl(var(--clr-neutral-900), 0.1);
 }
@@ -14,4 +15,12 @@
   display: grid;
   gap: 1rem;
   padding: 1.5em 0;
+}
+
+@media (width>=560px) {
+  .clients__header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

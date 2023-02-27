@@ -24,6 +24,10 @@
   color: hsl(var(--clr-neutral-700));
 }
 
+.btn--invite:is(:hover, :focus) {
+  background-color: hsl(var(--clr-neutral-500), 0.5);
+}
+
 .contact__menu {
   cursor: pointer;
   display: flex;

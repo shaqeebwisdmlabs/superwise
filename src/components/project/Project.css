@@ -46,7 +46,7 @@
 
 .project-view__menu {
   position: relative;
-  z-index: 999;
+  z-index: 99;
   cursor: pointer;
   display: flex;
   border: none;

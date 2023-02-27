@@ -3,7 +3,9 @@
   margin-bottom: 0.25em;
 }
 
-.input-field input {
+.input-field input[type="text"],
+.input-field input[type="email"] {
+  font-size: var(--fs-body-sm);
   width: 100%;
   padding: 0.5em;
   border: none;
