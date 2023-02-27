@@ -8,6 +8,13 @@
   text-decoration: none;
   color: hsl(var(--clr-neutral-900));
   transition: all 150ms ease-in-out;
+  position: relative;
+}
+
+.project-page__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .project-view:is(:hover, :focus) {
@@ -38,6 +45,8 @@
 }
 
 .project-view__menu {
+  position: relative;
+  z-index: 999;
   cursor: pointer;
   display: flex;
   border: none;

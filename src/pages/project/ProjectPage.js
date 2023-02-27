@@ -28,7 +28,7 @@ const ProjectPage = () => {
             </svg>
             <p className="fw-bold">Demo Client</p>
           </div>
-          <div className="flex" style={{ alignItems: "center", gap: "0.5rem" }}>
+          <div className="project__name | flex">
             <h1 className="fw-bold fs-title">Website Development</h1>
             <div className="project__status">In Progress</div>
           </div>

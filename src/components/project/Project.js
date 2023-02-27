@@ -4,8 +4,10 @@ import "./Project.css";
 
 const Project = () => {
   const id = 35;
+
   return (
-    <Link to={`/projects/${id}`} className="project-view grid-view box-shadow">
+    <div className="project-view grid-view box-shadow">
+      <Link to={`/projects/${id}`} className="project-page__link"></Link>
       <div
         style={{
           display: "flex",
@@ -72,7 +74,7 @@ const Project = () => {
         </svg>
         <span className="fs-body-sm">15 Feb 2023</span>
       </div>
-    </Link>
+    </div>
   );
 };
 

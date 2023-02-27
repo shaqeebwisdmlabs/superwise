@@ -5,6 +5,12 @@
   padding: 1.5em;
 }
 
+.project__name {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
 .project__status {
   display: inline-block;
   background-color: hsl(var(--clr-secondary-400));
@@ -30,4 +36,11 @@
 
 .project__details {
   padding: 1.5em;
+}
+
+@media (width>=560px) {
+  .project__name {
+    flex-direction: row;
+    align-items: center;
+  }
 }
