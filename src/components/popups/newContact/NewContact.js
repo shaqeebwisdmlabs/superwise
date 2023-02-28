@@ -4,6 +4,7 @@ import getId from "../../../utils/generateId";
 const NewContact = ({ setShowPopup, clientId }) => {
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
+
   const handleSubmit = () => {
     if (!clientName || !clientEmail) alert("All fields are required!");
 

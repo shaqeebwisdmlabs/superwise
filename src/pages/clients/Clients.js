@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
@@ -8,9 +8,22 @@ const Client = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [clients, setClients] = useState([]);
 
+  // const usePrevious = (value) => {
+  //   const ref = useRef();
+  //   useEffect(() => {
+  //     ref.current = value;
+  //   }, [value]);
+
+  //   return ref.current;
+  // };
+
+  // const previousData = usePrevious(clients);
   useEffect(() => {
-    setClients(JSON.parse(localStorage.getItem("organizations")));
-  }, [localStorage.getItem("organizations")]);
+    // if (previousData !== clients) {
+    const data = JSON.parse(localStorage.getItem("organizations"));
+    setClients(data);
+    // }
+  }, []);
 
   return (
     <>

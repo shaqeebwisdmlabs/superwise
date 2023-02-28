@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import "./NewProject.css";
-
 import clientData from "../../../utils/data/clientData";
 import { Link } from "react-router-dom";
+import getId from "../../../utils/generateId";
 
 const NewProject = ({ setShowPopup }) => {
-  const [projectStatuses, setProjectStatuses] = useState([
-    "Not Started",
-    "In Progress",
-    "Completed",
-  ]);
+  const projectStatuses = ["Not Started", "In Progress", "Completed"];
 
   const [projectName, setProjectName] = useState("");
   const [clientOrg, setClientOrg] = useState("");
@@ -17,6 +13,37 @@ const NewProject = ({ setShowPopup }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
+
+  const handleSubmit = () => {
+    if (
+      !projectName ||
+      !clientOrg ||
+      !status ||
+      !startDate ||
+      !endDate ||
+      !projectDesc
+    )
+      alert("All field is required");
+
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    if (!projects) projects = [];
+
+    let projectObj = {
+      id: getId(),
+      projectName: projectName,
+      projectStatus: status,
+      clientName: clientOrg,
+      startDate: startDate,
+      endDate: endDate,
+      projectDescription: projectDesc,
+      tasks: [],
+      documents: [],
+    };
+
+    projects.push(projectObj);
+    localStorage.setItem("projects", JSON.stringify(projects));
+    setShowPopup((prev) => !prev);
+  };
 
   return (
     <div className="popup-backdrop">
@@ -130,7 +157,9 @@ const NewProject = ({ setShowPopup }) => {
           >
             Cancel
           </button>
-          <button className="btn--add">Add Project</button>
+          <button className="btn--add" onClick={handleSubmit}>
+            Add Project
+          </button>
         </div>
       </div>
     </div>

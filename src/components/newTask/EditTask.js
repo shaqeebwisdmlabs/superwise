@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import getId from "../../utils/generateId";
 
-const NewTask = ({ setShowPopup, projectId }) => {
+const EditTask = ({ setShowEditPopup, projectId, task }) => {
   const taskStatuses = ["Not Started", "In Progress", "Completed"];
-  const [taskName, setTaskName] = useState("");
-  const [status, setStatus] = useState("default");
-  const [dueDate, setDueDate] = useState("");
-  const [taskNote, setTaskNote] = useState("");
+  const [taskName, setTaskName] = useState(task.taskName);
+  const [status, setStatus] = useState(task.taskStatus);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const [taskNote, setTaskNote] = useState(task.taskNote);
 
   const handleSubmit = () => {
     if (!taskName || !status || !dueDate || !taskNote)
@@ -15,20 +15,22 @@ const NewTask = ({ setShowPopup, projectId }) => {
     let projects = JSON.parse(localStorage.getItem("projects"));
 
     let taskObj = {
-      id: getId(),
+      id: task.id,
       taskName: taskName,
       taskStatus: status,
       dueDate: dueDate,
       taskNote: taskNote,
     };
     for (let i = 0; i < projects.length; i++) {
-      if (projects[i].id === projectId) {
-        projects[i].tasks.push(taskObj);
+      for (let j = 0; j < projects[i].tasks.length; j++) {
+        if (projects[i].tasks[j].id === task.id) {
+          projects[i].tasks[j] = taskObj;
+        }
       }
     }
 
     localStorage.setItem("projects", JSON.stringify(projects));
-    setShowPopup((prev) => !prev);
+    // setShowEditPopup((prev) => !prev);
   };
 
   return (
@@ -58,13 +60,11 @@ const NewTask = ({ setShowPopup, projectId }) => {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="default" disabled>
+            <option value="default" selected disabled>
               Select Status
             </option>
-            {taskStatuses.map((status, index) => (
-              <option value={status} key={index}>
-                {status}
-              </option>
+            {taskStatuses.map((status) => (
+              <option value={status}>{status}</option>
             ))}
           </select>
         </div>
@@ -102,12 +102,12 @@ const NewTask = ({ setShowPopup, projectId }) => {
         >
           <button
             className="btn--cancel"
-            onClick={(e) => setShowPopup((prev) => !prev)}
+            onClick={(e) => setShowEditPopup((prev) => !prev)}
           >
             Cancel
           </button>
           <button className="btn--add" onClick={handleSubmit}>
-            Add Task
+            Update Task
           </button>
         </div>
       </div>
@@ -115,4 +115,4 @@ const NewTask = ({ setShowPopup, projectId }) => {
   );
 };
 
-export default NewTask;
+export default EditTask;

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Discussion from "../../components/discussion/Discussion";
 import Documents from "../../components/documents/Documents";
 import ProjectProgress from "../../components/projectProgress/ProjectProgress";
@@ -7,6 +8,17 @@ import "./ProjectPage.css";
 const ProjectPage = () => {
   const [currTab, setCurrTab] = useState("project-progress");
   const [showMenu, setShowMenu] = useState(false);
+  const [project, setProject] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("projects"));
+    data.forEach((projectData) => {
+      if (projectData.id === id) {
+        setProject(projectData);
+      }
+    });
+  }, []);
 
   return (
     <main className="project-page">
@@ -27,11 +39,11 @@ const ProjectPage = () => {
                 d="M1.688 15.75h14.624m-13.5-13.5v13.5m7.876-13.5v13.5m4.5-10.125V15.75M5.062 5.062h.563m-.563 2.25h.563m-.563 2.25h.563m2.25-4.5h.563m-.563 2.25h.563m-.563 2.25h.563M5.062 15.75v-2.531c0-.466.378-.844.844-.844h1.688c.466 0 .843.378.843.844v2.531M2.25 2.25h9m-.563 3.375h5.063m-2.813 2.813h.006v.005h-.005v-.005Zm0 2.25h.006v.005h-.005v-.005Zm0 2.25h.006v.005h-.005v-.005Z"
               />
             </svg>
-            <p className="fw-bold">Demo Client</p>
+            <p className="fw-bold">{project.clientName}</p>
           </div>
           <div className="project__name | flex">
-            <h1 className="fw-bold fs-title">Website Development</h1>
-            <div className="project__status">In Progress</div>
+            <h1 className="fw-bold fs-title">{project.projectName}</h1>
+            <div className="project__status">{project.projectStatus}</div>
           </div>
           <div className="project__description">
             <p
@@ -41,13 +53,13 @@ const ProjectPage = () => {
                 maxWidth: "75ch",
               }}
             >
-              Blandit nunc tortor aenean ligula pellentesque integer iaculis
-              sed. Egestas turpis mauris tortor id iaculis enim porta. Arcu id
-              pharetra dui justo ac sagittis.
+              {project.projectDescription}
             </p>
           </div>
           <div className="project__timeline">
-            <p className="fw-semi-bold fs-body-sm">20 Jan 2023 - 15 Feb 2023</p>
+            <p className="fw-semi-bold fs-body-sm">
+              {project.startDate} to {project.endDate}
+            </p>
           </div>
         </div>
         <div className="dropdown">
@@ -213,9 +225,9 @@ const ProjectPage = () => {
           </div>
         </div>
         {currTab === "project-progress" ? (
-          <ProjectProgress />
+          <ProjectProgress tasks={project.tasks} projectId={project.id} />
         ) : currTab === "documents" ? (
-          <Documents />
+          <Documents documents={project.documents} projectId={project.id} />
         ) : (
           <Discussion />
         )}

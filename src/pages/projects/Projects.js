@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Projects.css";
 import plus from "../../assets/plus.svg";
 import Project from "../../components/project/Project";
@@ -6,6 +6,12 @@ import NewProject from "../../components/popups/newProject/NewProject";
 
 const Projects = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("projects"));
+    setProjects(data);
+  }, []);
 
   return (
     <>
@@ -21,14 +27,13 @@ const Projects = () => {
             <span>New Project</span>
           </button>
         </header>
-        <div className="all-projects grid-view">
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-        </div>
+        {projects && projects.length > 0 && (
+          <div className="all-projects grid-view">
+            {projects.map((project) => {
+              return <Project project={project} key={project.id} />;
+            })}
+          </div>
+        )}
       </main>
     </>
   );

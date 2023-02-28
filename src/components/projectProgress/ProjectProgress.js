@@ -4,12 +4,14 @@ import NewTask from "../newTask/NewTask";
 import Task from "../task/Task";
 import "./ProjectProgress.css";
 
-const ProjectProgress = () => {
+const ProjectProgress = ({ tasks, projectId }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
-      {showPopup && <NewTask setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <NewTask setShowPopup={setShowPopup} projectId={projectId} />
+      )}
       <div className="project-progress">
         <button
           className="btn--add | flex"
@@ -18,11 +20,13 @@ const ProjectProgress = () => {
           <img src={plus} alt="plus sign" />
           <span>New Task</span>
         </button>
-        <div className="all-tasks">
-          <Task />
-          <Task />
-          <Task />
-        </div>
+        {tasks && tasks.length > 0 && (
+          <div className="all-tasks">
+            {tasks.map((task) => {
+              return <Task task={task} key={task.id} projectId={projectId} />;
+            })}
+          </div>
+        )}
       </div>
     </>
   );

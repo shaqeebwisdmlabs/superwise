@@ -4,7 +4,7 @@ import Document from "../document/Document";
 import NewDocument from "../newDocument/NewDocument";
 import "./Documents.css";
 
-const Documents = () => {
+const Documents = ({ documents }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
@@ -19,9 +19,9 @@ const Documents = () => {
           <span>New Document</span>
         </button>
         <div className="all-documents">
-          <Document />
-          <Document />
-          <Document />
+          {documents.map((document) => {
+            return <Document document={document} />;
+          })}
         </div>
       </div>
     </>

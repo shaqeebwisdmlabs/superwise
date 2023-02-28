@@ -23,6 +23,7 @@ const Contact = ({ contact }) => {
   const handleEdit = () => {
     clientId = getClientId(clients);
     setShowEditPopup((prev) => !prev);
+    setShowMenu((prev) => !prev);
   };
 
   const handleDelete = () => {
@@ -37,6 +38,7 @@ const Contact = ({ contact }) => {
     }
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
+    setShowMenu((prev) => !prev);
   };
 
   useEffect(() => {
@@ -45,9 +47,6 @@ const Contact = ({ contact }) => {
 
   return (
     <>
-      {showPopup && (
-        <NewContact setShowPopup={setShowPopup} clientId={clientId} />
-      )}
       {showEditPopup && (
         <EditContact
           setShowEditPopup={setShowEditPopup}

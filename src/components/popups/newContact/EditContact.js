@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import getId from "../../../utils/generateId";
 
 const EditContact = ({ setShowEditPopup, clientContact }) => {
   const [clientName, setClientName] = useState(clientContact.name);

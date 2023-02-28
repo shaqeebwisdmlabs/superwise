@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Document.css";
 
-const Document = () => {
+const Document = ({ document }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <div className="document | bg-neutral-100 box-shadow">
-      <Link to={"/"} className="document__download">
+      <Link to={document.docUrl} className="document__download">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -48,7 +48,7 @@ const Document = () => {
           marginTop: "0.5em",
         }}
       >
-        <p className="fw-semi-bold fs-body-sm">Document Name</p>
+        <p className="fw-semi-bold fs-body-sm">{document.docName}</p>
         <div className="dropdown">
           <button
             className="document__menu"

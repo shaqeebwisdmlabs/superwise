@@ -4,16 +4,44 @@ import logo from "../../assets/org-logo.jpeg";
 import Contact from "../contact/Contact";
 import NewContact from "../popups/newContact/NewContact";
 import "./ClientOrganization.css";
+import EditClientOrganization from "../popups/newClientOrganization/EditClientOrganization";
 
 const ClientOrganization = ({ client }) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showEditPopup, setShowEditPopup] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
+  const handleEdit = () => {
+    setShowEditPopup((prev) => !prev);
+    setShowMenu((prev) => !prev);
+  };
+
+  const handleDelete = () => {
+    let organizations = JSON.parse(localStorage.getItem("organizations"));
+
+    for (let i = 0; i < organizations.length; i++) {
+      if (organizations[i].id === client.id) {
+        organizations.splice(i, 1);
+      }
+    }
+
+    localStorage.setItem("organizations", JSON.stringify(organizations));
+    setShowMenu((prev) => !prev);
+  };
 
   return (
     <>
       {showPopup && (
         <NewContact setShowPopup={setShowPopup} clientId={client.id} />
       )}
+      {showEditPopup && (
+        <EditClientOrganization
+          setShowEditPopup={setShowEditPopup}
+          clientId={client.id}
+          client={client}
+        />
+      )}
+
       <div className="client-organization | bg-neutral-100 box-shadow">
         <div className="organization">
           <div
@@ -58,7 +86,7 @@ const ClientOrganization = ({ client }) => {
               </button>
               {showMenu && (
                 <ul className="dropdown-menu box-shadow" role="menu">
-                  <li className="menu-item">
+                  <li className="menu-item" onClick={handleEdit}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="18"
@@ -75,7 +103,7 @@ const ClientOrganization = ({ client }) => {
                     </svg>
                     <span>Edit</span>
                   </li>
-                  <li className="menu-item">
+                  <li className="menu-item" onClick={handleDelete}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="18"
@@ -97,7 +125,7 @@ const ClientOrganization = ({ client }) => {
             </div>
           </div>
         </div>
-        {client.contacts.length > 0 && (
+        {client.contacts && client.contacts.length > 0 && (
           <div className="contacts">
             {client.contacts &&
               client.contacts.map((contact) => {
