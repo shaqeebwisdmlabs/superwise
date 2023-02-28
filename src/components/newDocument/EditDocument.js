@@ -2,22 +2,21 @@ import React, { useRef, useState } from "react";
 import getId from "../../utils/generateId";
 import "./NewDocument.css";
 
-const NewDocument = ({ setShowPopup, projectId }) => {
-  const [documentName, setDocumentName] = useState("");
-  const [file, setFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState("");
+const EditDocument = ({ setShowEditPopup, document }) => {
+  const [documentName, setDocumentName] = useState(document.docName);
+  const [file, setFile] = useState("");
+  const [fileUrl, setFileUrl] = useState(document.docUrl);
   const fileInput = useRef(null);
 
   const handleClick = () => {
     fileInput.current.click();
   };
 
-  const getDocUrl = async () => {
+  const getDocUrl = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.addEventListener("loadend", () => {
-      const url = reader.result;
-      setFileUrl(url);
+      setFileUrl(reader.result);
     });
   };
 
@@ -26,19 +25,21 @@ const NewDocument = ({ setShowPopup, projectId }) => {
     getDocUrl();
     let projects = JSON.parse(localStorage.getItem("projects"));
     let docObj = {
-      id: getId(),
+      id: document.id,
       docName: documentName,
       docUrl: fileUrl,
     };
 
     for (let i = 0; i < projects.length; i++) {
-      if (projects[i].id === projectId) {
-        projects[i].documents.push(docObj);
+      for (let j = 0; j < projects[i].documents.length; j++) {
+        if (projects[i].documents[j].id === document.id) {
+          projects[i].documents[j] = docObj;
+        }
       }
     }
 
     localStorage.setItem("projects", JSON.stringify(projects));
-    setShowPopup((prev) => !prev);
+    setShowEditPopup((prev) => !prev);
   };
 
   return (
@@ -114,12 +115,12 @@ const NewDocument = ({ setShowPopup, projectId }) => {
         >
           <button
             className="btn--cancel"
-            onClick={(e) => setShowPopup((prev) => !prev)}
+            onClick={(e) => setShowEditPopup((prev) => !prev)}
           >
             Cancel
           </button>
           <button className="btn--add" onClick={handleSubmit}>
-            Add Document
+            Update Document
           </button>
         </div>
       </div>
@@ -127,4 +128,4 @@ const NewDocument = ({ setShowPopup, projectId }) => {
   );
 };
 
-export default NewDocument;
+export default EditDocument;

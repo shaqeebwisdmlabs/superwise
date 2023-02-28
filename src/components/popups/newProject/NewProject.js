@@ -8,8 +8,8 @@ const NewProject = ({ setShowPopup }) => {
   const projectStatuses = ["Not Started", "In Progress", "Completed"];
 
   const [projectName, setProjectName] = useState("");
-  const [clientOrg, setClientOrg] = useState("");
-  const [status, setStatus] = useState("");
+  const [clientOrg, setClientOrg] = useState("default");
+  const [status, setStatus] = useState("default");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [projectDesc, setProjectDesc] = useState("");
@@ -71,11 +71,13 @@ const NewProject = ({ setShowPopup }) => {
             value={clientOrg}
             onChange={(e) => setClientOrg(e.target.value)}
           >
-            <option value="default" selected disabled>
+            <option value="default" disabled>
               Select a Client
             </option>
-            {clientData.map((client) => (
-              <option value={client.organization}>{client.organization}</option>
+            {clientData.map((client, index) => (
+              <option value={client.organization} key={index}>
+                {client.organization}
+              </option>
             ))}
           </select>
           <Link to="/clients" className="fs-body-x-sm text-primary-400">
@@ -95,11 +97,13 @@ const NewProject = ({ setShowPopup }) => {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="default" selected disabled>
+            <option value="default" disabled>
               Select Status
             </option>
-            {projectStatuses.map((status) => (
-              <option value={status}>{status}</option>
+            {projectStatuses.map((status, index) => (
+              <option value={status} key={index}>
+                {status}
+              </option>
             ))}
           </select>
         </div>

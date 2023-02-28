@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import getId from "../../utils/generateId";
 
-const EditTask = ({ setShowEditPopup, projectId, task }) => {
+const EditTask = ({ setShowEditPopup, task }) => {
   const taskStatuses = ["Not Started", "In Progress", "Completed"];
   const [taskName, setTaskName] = useState(task.taskName);
   const [status, setStatus] = useState(task.taskStatus);
@@ -30,7 +30,7 @@ const EditTask = ({ setShowEditPopup, projectId, task }) => {
     }
 
     localStorage.setItem("projects", JSON.stringify(projects));
-    // setShowEditPopup((prev) => !prev);
+    setShowEditPopup((prev) => !prev);
   };
 
   return (
@@ -60,11 +60,13 @@ const EditTask = ({ setShowEditPopup, projectId, task }) => {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="default" selected disabled>
+            <option value="default" disabled>
               Select Status
             </option>
-            {taskStatuses.map((status) => (
-              <option value={status}>{status}</option>
+            {taskStatuses.map((status, index) => (
+              <option value={status} key={index}>
+                {status}
+              </option>
             ))}
           </select>
         </div>

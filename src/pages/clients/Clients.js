@@ -7,23 +7,15 @@ import "./Clients.css";
 const Client = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [clients, setClients] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
 
-  // const usePrevious = (value) => {
-  //   const ref = useRef();
-  //   useEffect(() => {
-  //     ref.current = value;
-  //   }, [value]);
-
-  //   return ref.current;
-  // };
-
-  // const previousData = usePrevious(clients);
   useEffect(() => {
-    // if (previousData !== clients) {
     const data = JSON.parse(localStorage.getItem("organizations"));
-    setClients(data);
-    // }
-  }, []);
+    if (!isUpdated) {
+      setClients(data);
+      setIsUpdated(true);
+    }
+  }, [clients]);
 
   return (
     <>

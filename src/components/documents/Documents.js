@@ -4,12 +4,14 @@ import Document from "../document/Document";
 import NewDocument from "../newDocument/NewDocument";
 import "./Documents.css";
 
-const Documents = ({ documents }) => {
+const Documents = ({ documents, projectId }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
-      {showPopup && <NewDocument setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <NewDocument setShowPopup={setShowPopup} projectId={projectId} />
+      )}
       <div className="documents">
         <button
           className="btn--add | flex"
@@ -20,7 +22,13 @@ const Documents = ({ documents }) => {
         </button>
         <div className="all-documents">
           {documents.map((document) => {
-            return <Document document={document} />;
+            return (
+              <Document
+                document={document}
+                key={document.id}
+                projectId={projectId}
+              />
+            );
           })}
         </div>
       </div>
