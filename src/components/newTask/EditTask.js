@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import getId from "../../utils/generateId";
 
 const EditTask = ({ setShowEditPopup, task }) => {
   const taskStatuses = ["Not Started", "In Progress", "Completed"];
