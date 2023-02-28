@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 import getId from "../../../utils/generateId";
 
-const NewContact = ({ setShowPopup, clientId }) => {
-  const [clientName, setClientName] = useState("");
-  const [clientEmail, setClientEmail] = useState("");
+const EditContact = ({ setShowEditPopup, clientContact }) => {
+  const [clientName, setClientName] = useState(clientContact.name);
+  const [clientEmail, setClientEmail] = useState(clientContact.email);
+
   const handleSubmit = () => {
     if (!clientName || !clientEmail) alert("All fields are required!");
 
     let organizations = JSON.parse(localStorage.getItem("organizations"));
 
     let contactObj = {
-      id: getId(),
+      id: clientContact.id,
       name: clientName,
       email: clientEmail,
     };
 
     for (let i = 0; i < organizations.length; i++) {
-      if (organizations[i].id === clientId) {
-        organizations[i].contacts.push(contactObj);
+      for (let j = 0; j < organizations[i].contacts.length; j++) {
+        if (organizations[i].contacts[j].id === clientContact.id) {
+          organizations[i].contacts[j] = contactObj;
+        }
       }
     }
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
-    setShowPopup((prev) => !prev);
+    setShowEditPopup((prev) => !prev);
   };
 
   return (
@@ -59,12 +62,12 @@ const NewContact = ({ setShowPopup, clientId }) => {
         >
           <button
             className="btn--cancel"
-            onClick={(e) => setShowPopup((prev) => !prev)}
+            onClick={(e) => setShowEditPopup((prev) => !prev)}
           >
             Cancel
           </button>
           <button className="btn--add" onClick={handleSubmit}>
-            Add Contact
+            Update Contact
           </button>
         </div>
       </div>
@@ -72,4 +75,4 @@ const NewContact = ({ setShowPopup, clientId }) => {
   );
 };
 
-export default NewContact;
+export default EditContact;

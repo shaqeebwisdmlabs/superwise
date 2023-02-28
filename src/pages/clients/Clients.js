@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
 import "./Clients.css";
-import clientData from "../../utils/data/clientData";
 
 const Client = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [clients, setClients] = useState([]);
+
+  useEffect(() => {
+    setClients(JSON.parse(localStorage.getItem("organizations")));
+  }, [localStorage.getItem("organizations")]);
 
   return (
     <>
@@ -22,11 +26,14 @@ const Client = () => {
             <span>New Client Organization</span>
           </button>
         </header>
-        <div className="all-clients">
-          {clientData.map((client) => {
-            return <ClientOrganization key={client.id} client={client} />;
-          })}
-        </div>
+        {clients && clients.length > 0 && (
+          <div className="all-clients">
+            {clients &&
+              clients.map((client) => {
+                return <ClientOrganization key={client.id} client={client} />;
+              })}
+          </div>
+        )}
       </main>
     </>
   );
