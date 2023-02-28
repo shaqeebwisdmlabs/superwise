@@ -83,3 +83,47 @@ main {
   font-size: var(--fs-body-sm);
   transition: all 150ms ease-in-out;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  z-index: 999;
+  list-style: none;
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semi-bold);
+  background-color: hsl(var(--clr-neutral-900));
+  color: hsl(var(--clr-neutral-700));
+  padding: 0.5em;
+  border-radius: 0.25rem;
+}
+
+.menu-item {
+  cursor: pointer;
+  width: 7.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5em;
+  border-radius: 0.25rem;
+}
+
+.menu-item:hover {
+  background-color: hsl(var(--clr-neutral-500), 0.1);
+}
+
+.dropdown-menu.product-page-dropdown {
+  background-color: hsl(var(--clr-neutral-100));
+}
+
+.dropdown-menu.product-page-dropdown .menu-item {
+  width: 11rem;
+}
+
+.dropdown-menu.product-page-dropdown .menu-item:hover {
+  background-color: hsl(var(--clr-neutral-900), 0.1);
+}
