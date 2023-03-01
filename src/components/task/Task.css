@@ -41,6 +41,11 @@
   margin-left: auto;
 }
 
+.task-status {
+  display: flex;
+  justify-content: end;
+}
+
 @media (width>=560px) {
   .task {
     grid-template-areas: "task-name task-status due-date task-menu";
@@ -49,6 +54,11 @@
 
   .task__status {
     margin-inline: auto;
+  }
+
+  .task-status {
+    display: flex;
+    justify-content: center;
   }
 
   .task__due-date {

@@ -2,11 +2,11 @@ import React from "react";
 
 const Status = ({ status }) => {
   {
-    return status.toLowerCase() === "in progress" ? (
+    return status === "In Progress" ? (
       <div className="status in-progress">
         <span>In Progress</span>
       </div>
-    ) : status.toLowerCase() === "not started" ? (
+    ) : status === "Not Started" ? (
       <div className="status not-started">
         <span>Not Started</span>
       </div>

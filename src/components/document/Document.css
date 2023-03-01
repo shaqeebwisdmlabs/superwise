@@ -9,7 +9,7 @@
   place-items: center;
   height: 10rem;
   border-radius: 0.25rem;
-  background-color: hsl(var(--clr-neutral-500), 0.25);
+  background-color: hsl(var(--clr-neutral-500), 0.5);
 }
 
 .document__download {

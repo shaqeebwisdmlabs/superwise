@@ -41,7 +41,7 @@ const Task = ({ task, projectId }) => {
         <h3 className="fw-bold" style={{ gridArea: "task-name" }}>
           {task.taskName}
         </h3>
-        <div style={{ gridArea: "task-status", justifyContent: "end" }}>
+        <div className="task-status" style={{ gridArea: "task-status" }}>
           <Status status={task.taskStatus} />
         </div>
         <div
