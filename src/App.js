@@ -5,8 +5,13 @@ import Clients from "./pages/clients/Clients";
 import Navbar from "./components/navbar/Navbar";
 import ProjectPage from "./pages/project/ProjectPage";
 import "./App.css";
+import clientData from "./utils/data/clientData";
+import projectsData from "./utils/data/projectsData";
 
 const App = () => {
+  localStorage.setItem("organizations", clientData);
+  localStorage.setItem("projects", projectsData);
+
   return (
     <>
       <Router>

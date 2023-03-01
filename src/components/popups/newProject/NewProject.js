@@ -85,11 +85,13 @@ const NewProject = ({ setShowPopup }) => {
             <option value="default" disabled>
               Select a Client
             </option>
-            {clients.map((client, index) => (
-              <option value={client.organization} key={index}>
-                {client.organization}
-              </option>
-            ))}
+            {clients &&
+              clients.length > 0 &&
+              clients.map((client, index) => (
+                <option value={client.organization} key={index}>
+                  {client.organization}
+                </option>
+              ))}
           </select>
           <Link to="/clients" className="fs-body-x-sm text-primary-400">
             Create a new client organization

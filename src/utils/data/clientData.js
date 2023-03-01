@@ -1,17 +1,6 @@
 const clientData = [
   {
     id: 1,
-    organization: "Wisdmlabs",
-    contacts: [
-      {
-        id: 1,
-        name: "Shaqeeb Akhtar",
-        email: "shaqeeb.akhtar@gmail.com",
-      },
-    ],
-  },
-  {
-    id: 2,
     organization: "Demo Organization",
     contacts: [
       {
