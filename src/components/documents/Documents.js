@@ -20,17 +20,19 @@ const Documents = ({ documents, projectId }) => {
           <img src={plus} alt="plus sign" />
           <span>New Document</span>
         </button>
-        <div className="all-documents">
-          {documents.map((document) => {
-            return (
-              <Document
-                document={document}
-                key={document.id}
-                projectId={projectId}
-              />
-            );
-          })}
-        </div>
+        {documents && documents.length > 0 && (
+          <div className="all-documents">
+            {documents.map((document) => {
+              return (
+                <Document
+                  document={document}
+                  key={document.id}
+                  projectId={projectId}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );

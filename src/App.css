@@ -8,6 +8,10 @@ main {
   }
 }
 
+body.popup-active {
+  overflow: hidden;
+}
+
 .popup-backdrop {
   display: grid;
   place-items: center;

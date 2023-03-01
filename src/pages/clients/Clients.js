@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
@@ -7,15 +7,13 @@ import "./Clients.css";
 const Client = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [clients, setClients] = useState([]);
-  const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("organizations"));
-    if (!isUpdated) {
+    if (JSON.stringify(data) !== JSON.stringify(clients)) {
       setClients(data);
-      setIsUpdated(true);
     }
-  }, [isUpdated]);
+  }, [clients]);
 
   return (
     <>

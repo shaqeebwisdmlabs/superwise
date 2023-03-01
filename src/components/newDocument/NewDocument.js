@@ -5,31 +5,35 @@ import "./NewDocument.css";
 const NewDocument = ({ setShowPopup, projectId }) => {
   const [documentName, setDocumentName] = useState("");
   const [file, setFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState("");
+  const [url, setUrl] = useState("");
   const fileInput = useRef(null);
 
   const handleClick = () => {
     fileInput.current.click();
   };
 
-  const getDocUrl = async () => {
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
     const reader = new FileReader();
+    reader.onloadend = () => {
+      setFile(file);
+      setUrl(reader.result);
+    };
     reader.readAsDataURL(file);
-    reader.addEventListener("loadend", () => {
-      const url = reader.result;
-      setFileUrl(url);
-    });
   };
 
   const handleSubmit = () => {
     if (!documentName || !file) alert("All fields are required!");
-    getDocUrl();
-    let projects = JSON.parse(localStorage.getItem("projects"));
+
     let docObj = {
       id: getId(),
       docName: documentName,
-      docUrl: fileUrl,
+      docUrl: url,
     };
+
+    console.log(docObj);
+
+    let projects = JSON.parse(localStorage.getItem("projects"));
 
     for (let i = 0; i < projects.length; i++) {
       if (projects[i].id === projectId) {
@@ -82,7 +86,9 @@ const NewDocument = ({ setShowPopup, projectId }) => {
             type="file"
             name="document"
             id="document"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => {
+              handleFileChange(e);
+            }}
             ref={fileInput}
             style={{ display: "none" }}
           />

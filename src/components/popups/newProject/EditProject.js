@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./NewProject.css";
-import clientData from "../../../utils/data/clientData";
 import { Link } from "react-router-dom";
 
 const EditProject = ({ setShowEditPopup, project }) => {
@@ -11,6 +10,17 @@ const EditProject = ({ setShowEditPopup, project }) => {
   const [startDate, setStartDate] = useState(project.startDate);
   const [endDate, setEndDate] = useState(project.endDate);
   const [projectDesc, setProjectDesc] = useState(project.projectDescription);
+
+  const [clients, setClients] = useState([]);
+
+  const getData = useCallback(() => {
+    const data = JSON.parse(localStorage.getItem("organizations"));
+    setClients(data);
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleSubmit = () => {
     if (
@@ -77,7 +87,7 @@ const EditProject = ({ setShowEditPopup, project }) => {
             <option value="default" disabled>
               Select a Client
             </option>
-            {clientData.map((client, index) => (
+            {clients.map((client, index) => (
               <option value={client.organization} key={index}>
                 {client.organization}
               </option>
