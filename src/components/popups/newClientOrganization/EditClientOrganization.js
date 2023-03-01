@@ -24,6 +24,7 @@ const EditClientOrganization = ({ setShowEditPopup, client }) => {
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowEditPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (

@@ -24,6 +24,7 @@ const NewContact = ({ setShowPopup, clientId }) => {
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (

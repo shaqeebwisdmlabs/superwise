@@ -56,6 +56,7 @@ const EditProject = ({ setShowEditPopup, project }) => {
 
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowEditPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (

@@ -20,6 +20,7 @@ const NewClientOrganization = ({ setShowPopup }) => {
     organizations.push(orgObj);
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (

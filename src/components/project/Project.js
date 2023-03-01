@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import EditProject from "../popups/newProject/EditProject";
+import Status from "../statuses/Status";
 import "./Project.css";
 
 const Project = ({ project }) => {
@@ -23,6 +24,7 @@ const Project = ({ project }) => {
 
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowMenu((prev) => !prev);
+    window.location.reload();
   };
 
   return (
@@ -48,7 +50,7 @@ const Project = ({ project }) => {
           }}
         >
           <div className="gap-sm" style={{ marginBottom: "1.5em" }}>
-            <div className="project-view__status">{project.projectStatus}</div>
+            <Status status={project.projectStatus} />
             <h3 className="fw-bold" style={{ lineHeight: "1.1" }}>
               {project.projectName}
             </h3>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";

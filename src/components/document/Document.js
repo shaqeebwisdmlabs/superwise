@@ -22,6 +22,7 @@ const Document = ({ document, projectId }) => {
     }
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowMenu((prev) => !prev);
+    window.location.reload();
   };
 
   return (

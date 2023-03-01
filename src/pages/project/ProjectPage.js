@@ -4,6 +4,7 @@ import Discussion from "../../components/discussion/Discussion";
 import Documents from "../../components/documents/Documents";
 import EditProject from "../../components/popups/newProject/EditProject";
 import ProjectProgress from "../../components/projectProgress/ProjectProgress";
+import Status from "../../components/statuses/Status";
 import "./ProjectPage.css";
 
 const ProjectPage = () => {
@@ -77,7 +78,7 @@ const ProjectPage = () => {
             </div>
             <div className="project__name | flex">
               <h1 className="fw-bold fs-title">{project.projectName}</h1>
-              <div className="project__status">{project.projectStatus}</div>
+              <Status status={project.projectStatus} />
             </div>
             <div className="project__description">
               <p

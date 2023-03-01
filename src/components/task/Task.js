@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditTask from "../newTask/EditTask";
+import Status from "../statuses/Status";
 import "./Task.css";
 
 const Task = ({ task, projectId }) => {
@@ -24,6 +25,7 @@ const Task = ({ task, projectId }) => {
 
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowMenu((prev) => !prev);
+    window.location.reload();
   };
 
   return (
@@ -39,11 +41,8 @@ const Task = ({ task, projectId }) => {
         <h3 className="fw-bold" style={{ gridArea: "task-name" }}>
           {task.taskName}
         </h3>
-        <div
-          className="task__status"
-          style={{ gridArea: "task-status", justifyContent: "end" }}
-        >
-          <span>{task.taskStatus}</span>
+        <div style={{ gridArea: "task-status", justifyContent: "end" }}>
+          <Status status={task.taskStatus} />
         </div>
         <div
           className="task__due-date fs-body-sm"

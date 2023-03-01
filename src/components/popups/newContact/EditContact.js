@@ -25,7 +25,7 @@ const EditContact = ({ setShowEditPopup, clientContact }) => {
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowEditPopup((prev) => !prev);
-    // window.location.reload(true);
+    window.location.reload(true);
   };
 
   return (

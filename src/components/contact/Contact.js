@@ -39,6 +39,7 @@ const Contact = ({ contact }) => {
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowMenu((prev) => !prev);
+    window.location.reload();
   };
 
   useEffect(() => {

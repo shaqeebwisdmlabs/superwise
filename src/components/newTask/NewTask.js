@@ -29,6 +29,7 @@ const NewTask = ({ setShowPopup, projectId }) => {
 
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (

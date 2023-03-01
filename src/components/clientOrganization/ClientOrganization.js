@@ -27,6 +27,7 @@ const ClientOrganization = ({ client }) => {
 
     localStorage.setItem("organizations", JSON.stringify(organizations));
     setShowMenu((prev) => !prev);
+    window.location.reload();
   };
 
   return (

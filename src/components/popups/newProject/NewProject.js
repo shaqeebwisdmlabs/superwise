@@ -53,6 +53,7 @@ const NewProject = ({ setShowPopup }) => {
     projects.push(projectObj);
     localStorage.setItem("projects", JSON.stringify(projects));
     setShowPopup((prev) => !prev);
+    window.location.reload();
   };
 
   return (
