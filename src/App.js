@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Projects from "./pages/projects/Projects";
 import Clients from "./pages/clients/Clients";
@@ -9,8 +9,10 @@ import clientData from "./utils/data/clientData";
 import projectsData from "./utils/data/projectsData";
 
 const App = () => {
-  localStorage.setItem("organizations", clientData);
-  localStorage.setItem("projects", projectsData);
+  useEffect(() => {
+    localStorage.setItem("organizations", clientData);
+    localStorage.setItem("projects", projectsData);
+  }, []);
 
   return (
     <>
