@@ -43,7 +43,7 @@
 
 .task-status {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 @media (width>=560px) {

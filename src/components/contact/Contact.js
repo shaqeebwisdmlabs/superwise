@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import EditContact from "../popups/newContact/EditContact";
-import NewContact from "../popups/newContact/NewContact";
 import "./Contact.css";
 
 const Contact = ({ contact }) => {
-  const [showPopup, setShowPopup] = useState(false);
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [clients, setClients] = useState([]);
