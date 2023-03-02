@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Discussion from "../../components/discussion/Discussion";
 import Documents from "../../components/documents/Documents";
+import Navbar from "../../components/navbar/Navbar";
 import EditProject from "../../components/popups/newProject/EditProject";
 import ProjectProgress from "../../components/projectProgress/ProjectProgress";
 import Status from "../../components/statuses/Status";
@@ -46,6 +47,7 @@ const ProjectPage = () => {
 
   return (
     <>
+      <Navbar />
       {showEditPopup && (
         <EditProject
           setShowEditPopup={setShowEditPopup}

@@ -1,19 +1,25 @@
 {
   "files": {
-    "main.css": "./static/css/main.1b2994f4.css",
-    "main.js": "./static/js/main.7d66e1ad.js",
+    "main.css": "./static/css/main.0ea22801.css",
+    "main.js": "./static/js/main.ba9ce66c.js",
     "static/js/787.852736f4.chunk.js": "./static/js/787.852736f4.chunk.js",
     "static/media/logo.svg": "./static/media/logo.edc35946f66088b58b43babd5ce61c75.svg",
+    "static/media/asana_logo.svg": "./static/media/asana_logo.b1deabec2db41a31a0fe240b6114748a.svg",
+    "static/media/dropbox.svg": "./static/media/dropbox.42f143d576b62ff45dc0cada8b565e51.svg",
+    "static/media/trello.svg": "./static/media/trello.888e9db11a2bbbe8528cb5c1cdba2cac.svg",
+    "static/media/slack.svg": "./static/media/slack.7b66c3f75f64394bd81edf4d90ee52e6.svg",
     "index.html": "./index.html",
     "static/media/plus.svg": "./static/media/plus.63cb66c182af093d02518bf04f5c3b5d.svg",
+    "static/media/drive.svg": "./static/media/drive.4046540790bcdbef18478c8259ad7a8e.svg",
+    "static/media/gmail.svg": "./static/media/gmail.cf6e9da6207069eaa596237538127bcb.svg",
     "static/media/logout.svg": "./static/media/logout.e499565e402db13e9356578d520db5fb.svg",
     "static/media/arrows.svg": "./static/media/arrows.c070caf7f5dbfe339abe8cc32d3dfe93.svg",
-    "main.1b2994f4.css.map": "./static/css/main.1b2994f4.css.map",
-    "main.7d66e1ad.js.map": "./static/js/main.7d66e1ad.js.map",
+    "main.0ea22801.css.map": "./static/css/main.0ea22801.css.map",
+    "main.ba9ce66c.js.map": "./static/js/main.ba9ce66c.js.map",
     "787.852736f4.chunk.js.map": "./static/js/787.852736f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b2994f4.css",
-    "static/js/main.7d66e1ad.js"
+    "static/css/main.0ea22801.css",
+    "static/js/main.ba9ce66c.js"
   ]
 }

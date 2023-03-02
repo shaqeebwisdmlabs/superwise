@@ -25,7 +25,7 @@
   --fs-600: 1.25rem;
   --fs-700: 1.5rem;
   --fs-800: 2rem;
-  --fs-900: 2.25rem;
+  --fs-900: 2.5rem;
 
   --fs-title-lg: var(--fs-800);
   --fs-title: var(--fs-600);
@@ -109,7 +109,7 @@ select {
 
 .container {
   --max-width: 1120px;
-  --padding: 1rem;
+  --padding: 1.5rem;
 
   width: min(var(--max-width), 100% - var(--padding));
   margin-inline: auto;

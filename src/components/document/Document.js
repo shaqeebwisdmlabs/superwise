@@ -35,7 +35,11 @@ const Document = ({ document, projectId }) => {
         />
       )}
       <div className="document | bg-neutral-100 box-shadow">
-        <a href={document.docUrl} download className="document__download">
+        <a
+          href={document.docUrl}
+          download={document.docName}
+          className="document__download"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

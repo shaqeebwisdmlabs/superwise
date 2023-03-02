@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
 import EmptyState from "../../components/emptyState/EmptyState";
+import Navbar from "../../components/navbar/Navbar";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
 import "./Clients.css";
 
@@ -18,6 +19,7 @@ const Client = () => {
 
   return (
     <>
+      <Navbar />
       {showPopup && <NewClientOrganization setShowPopup={setShowPopup} />}
       <main className="clients">
         <header className="clients__header">

@@ -81,7 +81,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="inbox"
+            to="/inbox"
             className={currPath === "/inbox" ? "nav-link current" : "nav-link"}
           >
             <svg
@@ -110,7 +110,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="teams"
+            to="/teams"
             className={currPath === "/teams" ? "nav-link current" : "nav-link"}
           >
             <svg

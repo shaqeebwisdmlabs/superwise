@@ -4,6 +4,7 @@ import plus from "../../assets/plus.svg";
 import Project from "../../components/project/Project";
 import NewProject from "../../components/popups/newProject/NewProject";
 import EmptyState from "../../components/emptyState/EmptyState";
+import Navbar from "../../components/navbar/Navbar";
 
 const Projects = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -16,6 +17,7 @@ const Projects = () => {
 
   return (
     <>
+      <Navbar />
       {showPopup && <NewProject setShowPopup={setShowPopup} />}
       <main className="projects">
         <header className="projects__header">
