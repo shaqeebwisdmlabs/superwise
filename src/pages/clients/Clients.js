@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import plus from "../../assets/plus.svg";
 import ClientOrganization from "../../components/clientOrganization/ClientOrganization";
+import EmptyState from "../../components/emptyState/EmptyState";
 import NewClientOrganization from "../../components/popups/newClientOrganization/NewClientOrganization";
 import "./Clients.css";
 
@@ -29,13 +30,19 @@ const Client = () => {
             <span>New Client Organization</span>
           </button>
         </header>
-        {clients && clients.length > 0 && (
+        {clients && clients.length > 0 ? (
           <div className="all-clients">
             {clients &&
               clients.map((client) => {
                 return <ClientOrganization key={client.id} client={client} />;
               })}
           </div>
+        ) : (
+          <EmptyState
+            title={"No Clients in your clients list"}
+            button={"New Client Organization"}
+            message={"to add a new client."}
+          />
         )}
       </main>
     </>

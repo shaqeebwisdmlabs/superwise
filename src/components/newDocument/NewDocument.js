@@ -23,7 +23,10 @@ const NewDocument = ({ setShowPopup, projectId }) => {
   };
 
   const handleSubmit = () => {
-    if (!documentName || !file) alert("All fields are required!");
+    if (!documentName || !file) {
+      alert("All field is required");
+      return;
+    }
 
     let docObj = {
       id: getId(),

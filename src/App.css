@@ -154,3 +154,11 @@ body.popup-active {
   background-color: hsl(var(--clr-secondary-400));
   color: hsl(var(--clr-neutral-900));
 }
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  height: min(40vh, 25rem);
+  padding: 0 0 1em;
+}

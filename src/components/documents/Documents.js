@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import plus from "../../assets/plus.svg";
 import Document from "../document/Document";
+import EmptyState from "../emptyState/EmptyState";
 import NewDocument from "../newDocument/NewDocument";
 import "./Documents.css";
 
@@ -20,7 +21,7 @@ const Documents = ({ documents, projectId }) => {
           <img src={plus} alt="plus sign" />
           <span>New Document</span>
         </button>
-        {documents && documents.length > 0 && (
+        {documents && documents.length > 0 ? (
           <div className="all-documents">
             {documents.map((document) => {
               return (
@@ -32,6 +33,12 @@ const Documents = ({ documents, projectId }) => {
               );
             })}
           </div>
+        ) : (
+          <EmptyState
+            title={"No Documents in your documents list"}
+            button={"New Document"}
+            message={"to add a new document."}
+          />
         )}
       </div>
     </>

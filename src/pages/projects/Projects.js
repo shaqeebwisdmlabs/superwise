@@ -3,6 +3,7 @@ import "./Projects.css";
 import plus from "../../assets/plus.svg";
 import Project from "../../components/project/Project";
 import NewProject from "../../components/popups/newProject/NewProject";
+import EmptyState from "../../components/emptyState/EmptyState";
 
 const Projects = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -27,12 +28,18 @@ const Projects = () => {
             <span>New Project</span>
           </button>
         </header>
-        {projects && projects.length > 0 && (
+        {projects && projects.length > 0 ? (
           <div className="all-projects grid-view">
             {projects.map((project) => {
               return <Project project={project} key={project.id} />;
             })}
           </div>
+        ) : (
+          <EmptyState
+            title={"No Projects in your projects list"}
+            button={"New Project"}
+            message={"to add a new project."}
+          />
         )}
       </main>
     </>

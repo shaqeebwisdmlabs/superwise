@@ -9,8 +9,10 @@ const NewTask = ({ setShowPopup, projectId }) => {
   const [taskNote, setTaskNote] = useState("");
 
   const handleSubmit = () => {
-    if (!taskName || !status || !dueDate || !taskNote)
-      alert("All fields are required!");
+    if (!taskName || !status || !dueDate || !taskNote) {
+      alert("All field is required");
+      return;
+    }
 
     let projects = JSON.parse(localStorage.getItem("projects"));
 

@@ -6,7 +6,10 @@ const NewContact = ({ setShowPopup, clientId }) => {
   const [clientEmail, setClientEmail] = useState("");
 
   const handleSubmit = () => {
-    if (!clientName || !clientEmail) alert("All fields are required!");
+    if (!clientName || !clientEmail) {
+      alert("All field is required");
+      return;
+    }
 
     let organizations = JSON.parse(localStorage.getItem("organizations"));
 

@@ -6,7 +6,10 @@ const NewClientOrganization = ({ setShowPopup }) => {
   const [organizationName, setOrganizationName] = useState("");
 
   const handleSubmit = () => {
-    if (!organizationName) alert("Organization Name is required");
+    if (!organizationName) {
+      alert("Organization Name is required");
+      return;
+    }
 
     let organizations = JSON.parse(localStorage.getItem("organizations"));
     if (!organizations) organizations = [];

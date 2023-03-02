@@ -32,8 +32,10 @@ const NewProject = ({ setShowPopup }) => {
       !startDate ||
       !endDate ||
       !projectDesc
-    )
+    ) {
       alert("All field is required");
+      return;
+    }
 
     let projects = JSON.parse(localStorage.getItem("projects"));
     if (!projects) projects = [];
