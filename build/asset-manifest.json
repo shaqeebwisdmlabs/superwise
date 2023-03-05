@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.0ea22801.css",
-    "main.js": "./static/js/main.ba9ce66c.js",
+    "main.js": "./static/js/main.a050e2d5.js",
     "static/js/787.852736f4.chunk.js": "./static/js/787.852736f4.chunk.js",
     "static/media/logo.svg": "./static/media/logo.edc35946f66088b58b43babd5ce61c75.svg",
     "static/media/asana_logo.svg": "./static/media/asana_logo.b1deabec2db41a31a0fe240b6114748a.svg",
@@ -15,11 +15,11 @@
     "static/media/logout.svg": "./static/media/logout.e499565e402db13e9356578d520db5fb.svg",
     "static/media/arrows.svg": "./static/media/arrows.c070caf7f5dbfe339abe8cc32d3dfe93.svg",
     "main.0ea22801.css.map": "./static/css/main.0ea22801.css.map",
-    "main.ba9ce66c.js.map": "./static/js/main.ba9ce66c.js.map",
+    "main.a050e2d5.js.map": "./static/js/main.a050e2d5.js.map",
     "787.852736f4.chunk.js.map": "./static/js/787.852736f4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0ea22801.css",
-    "static/js/main.ba9ce66c.js"
+    "static/js/main.a050e2d5.js"
   ]
 }
